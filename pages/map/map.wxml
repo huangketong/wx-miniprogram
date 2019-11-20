@@ -1,0 +1,11 @@
+<!--pages/map/map.wxml-->
+<text>pages/map/map.wxml</text>
+
+<map id="map" show-location="true" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" bindcontroltap="controltap" bindmarkertap="markertap" bindregionchange="regionchange" bindtap="bindtapMark" bindpoitap="bindpoitap" markers="{{markers}}" show-location style="width: 100%; height: 300px;"></map>
+
+<view>
+  <button bindtap="bindBackLocation">回到定位点</button>
+  <button bindtap="bindGetCenterLocation">获取中心点坐标</button>
+  <button bindtap="bindChooseLocation">打开地图选择位置</button>
+</view>
+

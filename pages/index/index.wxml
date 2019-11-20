@@ -7,6 +7,12 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <view>
+    <button bindtap="bindOpenSetting">展示已授权</button>
+  </view>
+  <view>
+    <button bindtap="bindToGetSetting">去授权</button>
+  </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>

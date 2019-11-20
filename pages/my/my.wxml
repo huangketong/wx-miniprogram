@@ -4,3 +4,6 @@
   来自本地接口的数据
   {{apiInfo}}
 </view>
+<view>
+  <button bindtap="gotoMap">跳转到地图</button>
+</view>

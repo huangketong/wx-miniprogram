@@ -6,6 +6,36 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // https://developers.weixin.qq.com/community/develop/doc/000cea2305cc5047af5733de751008
+    // 必须使用事件打开
+    // wx.openSetting({
+    //   success: (res) => {
+    //     console.log('open', res.authSetting)
+    //     // res.authSetting = {
+    //     //   "scope.userInfo": true,
+    //     //   "scope.userLocation": true
+    //     // }
+    //   },
+    //   fail: (res) => {
+    //     console.log('openfail', res.errMsg)
+    //   },
+    //   complete: (res) => {
+    //     console.log('opencomplete', res.errMsg)
+    //   }
+    // })
+
+    wx.checkSession({
+      success: () => {
+        //session_key 未过期，并且在本生命周期一直有效
+        console.log('未过期，并且在本生命周期一直有效')
+      },
+      fail() {
+        console.log('已经失效，需要重新执行登录流程')
+        // session_key 已经失效，需要重新执行登录流程
+        wx.login() //重新登录
+      }
+    })
+
     // 登录
     wx.login({
       success: res => {
