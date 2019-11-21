@@ -8,12 +8,30 @@ Page({
     apiInfo: '',
   },
 
+  // 调转到map页面
   gotoMap: () => {
     wx.navigateTo({
       url: '../map/map',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+
+  // 调用支付
+  bindUsePay: () => {
+    wx.requestPayment({
+      timeStamp: '',
+      nonceStr: '',
+      package: '',
+      signType: 'MD5',
+      paySign: '',
+      success(res) {
+        console.log('paySuccessRes')
+      },
+      fail(res) { 
+        console.log('payFailRes', res)
+      }
     })
   },
 

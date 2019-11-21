@@ -7,3 +7,6 @@
 <view>
   <button bindtap="gotoMap">跳转到地图</button>
 </view>
+<view>
+  <button bindtap="bindUsePay">调起支付</button>
+</view>
