@@ -7,11 +7,32 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view>
+  <view class="custom">
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号</button>
+  </view>
+  <view class="custom">
     <button bindtap="bindOpenSetting">展示已授权</button>
   </view>
-  <view>
-    <button bindtap="bindToGetSetting">去授权</button>
+  <view class="custom">
+    <button bindtap="toGetSetting">去授权</button>
+  </view>
+  <view class="custom">
+    <button class="show-auth" price="{{price}}" color="{{color}}" bindtap="bindGetData">上传自定义数据</button>
+  </view>
+  <view class="custom">
+    <button bindtap="bindAddress">收货地址</button>
+  </view>
+  <view class="custom">
+    <button bindtap="bindChooseInvoiceTitle">发票抬头</button>
+  </view>
+  <view class="custom">
+    <button bindtap="bindChooseInvoice">发票信息</button>
+  </view>
+  <view class="custom">
+    <button bindtap="bindCamera">调用相机</button>
+  </view>
+  <view class="custom">
+    <button bindtap="bindScanCode">扫一扫</button>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

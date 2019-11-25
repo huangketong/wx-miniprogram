@@ -7,7 +7,9 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    price: 140,
+    color: 'blue'
   },
   //事件处理函数
   bindViewTap: function() {
@@ -17,8 +19,84 @@ Page({
     //   url: '../logs/logs'
     // })
   },
-  bindOpenSetting: () => {
-    console.log('bindOpenSetting')
+
+  getPhoneNumber(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  },
+
+  bindScanCode: function() {
+    // 允许从相机和相册扫码
+    wx.scanCode({
+      success(res) {
+        console.log(res)
+        wx.showModal({
+          title: '扫描结果',
+          content: JSON.stringify(res),
+        })
+      }
+    })
+
+    // 只允许从相机扫码
+    // wx.scanCode({
+    //   onlyFromCamera: true,
+    //   success(res) {
+    //     console.log(res)
+    //   }
+    // })
+  },
+
+  bindCamera: function() {
+    wx.navigateTo({
+      url: '../camera/camera',
+    })
+  },
+
+  bindChooseInvoice: function() {
+    wx.chooseInvoice({
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
+
+  bindChooseInvoiceTitle: function(){
+    wx.chooseInvoiceTitle({
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
+
+  bindAddress: function() {
+    wx.chooseAddress({
+      success(res) {
+        console.log(res.userName)
+        console.log(res.postalCode)
+        console.log(res.provinceName)
+        console.log(res.cityName)
+        console.log(res.countyName)
+        console.log(res.detailInfo)
+        console.log(res.nationalCode)
+        console.log(res.telNumber)
+      }
+    })
+  },
+
+  bindGetData: function(){
+    console.log(this.data);
+    const { price, color } = this.data;
+    wx.reportAnalytics('click_test', {
+      price,
+      color,
+    })
+    wx.showToast({
+      title: '同步数据',
+    })
+  },
+
+  bindOpenSetting: function(e) {
     wx.openSetting({
       success: (res) => {
         console.log('open', res.authSetting)
@@ -28,15 +106,16 @@ Page({
       },
     })
   },
-  bindToGetSetting: (e) => {
-    console.log(e)
-    // wx.authorize({
-    //   scope: 'scope.userLocation',
-    //   success: (res) => {
-    //     // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-    //     console.log('9999', res)
-    //   }
-    // })
+
+  toGetSetting: function(e) {
+    console.log("toGetSetting")
+    wx.
+    wx.authorize({
+      scope: 'scope.camera',
+      success: (res) => {
+        console.log('9999', res)
+      }
+    })
     // wx.getLocation({
     //   type: 'wgs84',
     //   success(res) {
