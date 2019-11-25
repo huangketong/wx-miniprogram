@@ -77,8 +77,11 @@ Page({
     // });
 
     // 写法 2
+    wx.showLoading({
+      title: '正在请求接口...',
+    })
     wx.request({
-      url: 'http://30.43.89.206:3000', //仅为示例，并非真实的接口地址
+      url: 'http://30.43.88.228:3000/api/wx-test', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'content-type': 'application/json' // 默认值
@@ -90,6 +93,7 @@ Page({
         this.setData({
           apiInfo: res.data
         })
+        wx.hideLoading();
       }
     });
   },

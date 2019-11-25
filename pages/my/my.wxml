@@ -2,6 +2,8 @@
 <text>pages/my/my.wxml</text>
 <view>
   来自本地接口的数据
+</view>
+<view>
   {{apiInfo}}
 </view>
 <view>
