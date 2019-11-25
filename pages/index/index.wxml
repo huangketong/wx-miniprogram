@@ -34,6 +34,9 @@
   <view class="custom">
     <button bindtap="bindScanCode">扫一扫</button>
   </view>
+  <view class="custom">
+    <button bindtap="supportFace">生物认证</button>
+  </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>

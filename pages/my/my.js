@@ -31,6 +31,10 @@ Page({
       },
       fail(res) { 
         console.log('payFailRes', res)
+        wx.showModal({
+          title: '支付失败',
+          content: JSON.stringify(res),
+        })
       }
     })
   },
