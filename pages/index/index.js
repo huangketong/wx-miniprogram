@@ -141,7 +141,7 @@ Page({
     })
   },
 
-  bindOpenSetting: function(e) {
+  openSetting: function(e) {
     wx.openSetting({
       success: (res) => {
         console.log('open', res.authSetting)

@@ -11,7 +11,8 @@
     <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号</button>
   </view>
   <view class="custom">
-    <button bindtap="bindOpenSetting">展示已授权</button>
+    <button bindtap="openSetting">打开设置页</button>
+    <!-- <button open-type="openSetting" bindopensetting="openSetting">打开设置页</button> -->
   </view>
   <view class="custom">
     <button bindtap="toGetSetting">去授权</button>
